@@ -1,13 +1,14 @@
-import React from "react"
+import React, {useState} from "react"
 import Question from "./components/Question"
+import WelcomePage from "./components/WelcomePage"
+import QuestionsPage from "./components/QuestionsPage"
 
 export default function App() {
-
-    const [isWelcomePage, setIsWelcomePage] = React.useState(true)
-    const [endGame, setEndGame] = React.useState(false)
-    const [questions, setQuestions] = React.useState([])
-    const [score, setScore] = React.useState(0)
-    const [quizParams, setQuizParams] = React.useState({
+    const [isWelcomePage, setIsWelcomePage] = useState(true)
+    const [endGame, setEndGame] = useState(false)
+    const [questions, setQuestions] = useState([])
+    const [score, setScore] = useState(0)
+    const [quizParams, setQuizParams] = useState({
         questionsCount: 5,
         difficulty: "easy"
     })
@@ -31,7 +32,7 @@ export default function App() {
                     answears: shuffleArray(answears),
                     isCorrect: false,
                     id: results.indexOf(result),
-                    markedAnswear: "Test"
+                    markedAnswear: ""
                 })
             }
         ))
@@ -59,6 +60,7 @@ export default function App() {
 
     function startNewGame() {
         setIsWelcomePage(true)
+        setScore(0)
     }
 
     function checkIfCorrect(id, newMarkedAnswear) {
@@ -72,7 +74,7 @@ export default function App() {
                         : prevQuestion))
     }
 
-    function handleChange(event) {
+    function onQuizParamsChange(event) {
         event.preventDefault()
         const {name, value} = event.target
         setQuizParams(prevQuizParams => (
@@ -87,52 +89,27 @@ export default function App() {
             questionText={question.questionText}
             id={question.id}
             answears={question.answears}
-            isCorrect={question.isCorrect}
-            correctAnswear={question.correctAnswear}
             checkIfCorrect={checkIfCorrect}
-            markedAnswear={question.markedAnswear}/>))
+            markedAnswear={question.markedAnswear}/>
+    ))
 
     if (isWelcomePage) {
         return (
-            <main className="welcome-page">
-                <h1>Quiz game</h1>
-                <p>Answear few questions and test yourself.</p>
-                <form
-                    className="form"
-                    onSubmit={startQuiz}>
-                    <label htmlFor="count">Select number of questions</label>
-                    <input
-                        id="count"
-                        className="form-count"
-                        type="text"
-                        placeholder="Number of questions"
-                        name="questionsCount"
-                        onChange={handleChange}/>
-                    <br />
-                    <label htmlFor="difficulty">Select difficulty</label>
-                    <select
-                        id="difficulty"
-                        value={quizParams.difficulty}
-                        onChange={handleChange}
-                        name="difficulty">
-                        <option className="option-difficulty" value="easy">easy</option>
-                        <option className="option-difficulty" value="medium">medium</option>
-                        <option className="option-difficulty" value="hard">hard</option>
-                    </select>
-                    <br />
-                    <button>Start quiz</button>
-                </form>
-            </main>
+            <WelcomePage 
+                startQuiz={startQuiz}
+                onQuizParamsChange={onQuizParamsChange}
+                difficulty={quizParams.difficulty}
+                questionsCount={quizParams.questionsCount}/>
         )
     } else {
         return (
-            <main className="questions-page">
-                <h1>Questions</h1>
-                {questionElements}
-                {!endGame && <button onClick={checkAnswears}>Check answears</button>}
-                {endGame && <p>You scored {score}/{quizParams.questionsCount} correct answears</p>}
-                {endGame && <button onClick={startNewGame}>Play again</button>}
-            </main>
+            <QuestionsPage
+                questionElements={questionElements}
+                endGame={endGame}
+                checkAnswears={checkAnswears}
+                score={score}
+                questionsCount={quizParams.questionsCount}
+                startNewGame={startNewGame}/>
         )
     }
 }
