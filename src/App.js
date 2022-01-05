@@ -90,26 +90,28 @@ export default function App() {
             id={question.id}
             answears={question.answears}
             checkIfCorrect={checkIfCorrect}
-            markedAnswear={question.markedAnswear}/>
+            markedAnswear={question.markedAnswear}
+        />
     ))
 
-    if (isWelcomePage) {
-        return (
-            <WelcomePage 
-                startQuiz={startQuiz}
-                onQuizParamsChange={onQuizParamsChange}
-                difficulty={quizParams.difficulty}
-                questionsCount={quizParams.questionsCount}/>
-        )
-    } else {
-        return (
+    return (
+        <main>
+            {isWelcomePage && 
+             <WelcomePage 
+             startQuiz={startQuiz}
+             onQuizParamsChange={onQuizParamsChange}
+             difficulty={quizParams.difficulty}
+             questionsCount={quizParams.questionsCount}
+         />}
+            {!isWelcomePage && 
             <QuestionsPage
-                questionElements={questionElements}
-                endGame={endGame}
-                checkAnswears={checkAnswears}
-                score={score}
-                questionsCount={quizParams.questionsCount}
-                startNewGame={startNewGame}/>
-        )
-    }
+            questionElements={questionElements}
+            endGame={endGame}
+            checkAnswears={checkAnswears}
+            score={score}
+            questionsCount={quizParams.questionsCount}
+            startNewGame={startNewGame}
+        />}
+        </main>
+    )
 }

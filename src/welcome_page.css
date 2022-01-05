@@ -1,0 +1,75 @@
+body {
+    margin: 0 0;
+    font-family: Inter, sans-serif;
+}
+
+.welcome-page {
+    background-color: #F5F7FB;
+    background-image: url("./images/blob.png");
+    background-position-x: right;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 500px;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    align-items: center;
+    position: relative;
+}
+
+h1 {
+    color: #293264;
+    margin: 0 0;
+    font-size: 35px;
+}
+
+.welcome-page > p {
+    color: #293264;
+    font-size: 22px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    color: #293264;
+    height: 230px;
+}
+
+.form > label {
+    padding-bottom: 5px;
+    padding-top: 15px;
+    font-size: 17px;
+}
+
+.form-count {
+    font-family: Inter, sans-serif;
+    color: #293264;
+    font-size: 15px;
+}
+
+.option-difficulty {
+    font-family: Inter, sans-serif;
+    color: #293264;
+    font-size: 15px;
+}
+
+button {
+    margin-top: 15px;
+    width: 140px;
+    height: 40px;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-radius: 4px;
+    background-color: #4D5B9E;
+    box-shadow: 0px 3.2px 3px rgba(0, 0, 0, 0.18);
+    color: white;
+}
+
+button:active {
+    box-shadow: inset 5px 5px 5px -3px rgba(0, 0, 0, 0.7);
+}

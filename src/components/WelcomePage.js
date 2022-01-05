@@ -1,4 +1,5 @@
 import React from "react"
+import '../welcome_page.css';
 
 export default function WelcomePage({startQuiz, onQuizParamsChange, difficulty}) {
     return (
@@ -15,8 +16,8 @@ export default function WelcomePage({startQuiz, onQuizParamsChange, difficulty})
                     type="text"
                     placeholder="Number of questions"
                     name="questionsCount"
-                    onChange={onQuizParamsChange}/>
-                <br />
+                    onChange={onQuizParamsChange}
+                />
                 <label htmlFor="difficulty">Select difficulty</label>
                 <select
                     id="difficulty"
@@ -27,7 +28,6 @@ export default function WelcomePage({startQuiz, onQuizParamsChange, difficulty})
                     <option className="option-difficulty" value="medium">medium</option>
                     <option className="option-difficulty" value="hard">hard</option>
                 </select>
-                <br />
                 <button>Start quiz</button>
             </form>
         </main>

@@ -1,0 +1,49 @@
+.questions-page {
+    background-color: #F5F7FB;
+    background-image: url("./images/blob.png");
+    background-position-x: right;
+    background-position-y: top;
+    background-repeat: no-repeat;
+    width: 80%;
+    margin: auto auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 25px;
+    /* align-items: center; */
+    position: relative;
+    padding: 15px 15px;
+}
+
+.questions-page > h1 {
+    text-align: center;
+}
+
+.questions-page > p {
+    color: #293264;
+}
+
+.answears {
+    display: flex;
+    gap: 20px;
+    color: #293264;
+    font-size: 15px;
+}
+
+.question {
+    color: #293264;
+    font-size: 17px;
+}
+
+.answear {
+    border: 2px solid #293264;
+    border-radius: 4px;
+    padding: 5px 5px;
+}
+
+.answear-marked {
+    border: 2px solid #293264;
+    border-radius: 4px;
+    padding: 5px 5px;
+    background-color: #94D7A2;
+}
