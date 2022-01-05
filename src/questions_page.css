@@ -1,16 +1,12 @@
 .questions-page {
-    background-color: #F5F7FB;
-    background-image: url("./images/blob.png");
-    background-position-x: right;
-    background-position-y: top;
-    background-repeat: no-repeat;
+    font-family: Inter, sans-serif;
+    background: #F5F7FB url("./images/blob.png") no-repeat top right;
     width: 80%;
     margin: auto auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 25px;
-    /* align-items: center; */
     position: relative;
     padding: 15px 15px;
 }

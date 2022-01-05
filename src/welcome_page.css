@@ -1,14 +1,6 @@
-body {
-    margin: 0 0;
-    font-family: Inter, sans-serif;
-}
-
 .welcome-page {
-    background-color: #F5F7FB;
-    background-image: url("./images/blob.png");
-    background-position-x: right;
-    background-position-y: top;
-    background-repeat: no-repeat;
+    font-family: Inter, sans-serif;
+    background: #F5F7FB url("./images/blob.png") no-repeat top right;
     width: 80%;
     height: 500px;
     margin: auto auto;
